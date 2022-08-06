@@ -1,9 +1,19 @@
+import { ProductMockService } from './../app/products/product-mock.service';
+import { ProductService } from './../app/products/product.service';
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'https://product42.com',
+  endpoints: {
+    account: { path: 'auth/realms/basketmaster/account/?referrer=teams-frontend' },
+  },
+  providers: [
+    { provide: ProductService, useClass: ProductMockService }
+  ]
 };
 
 /*
