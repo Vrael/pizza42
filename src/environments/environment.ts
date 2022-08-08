@@ -7,9 +7,10 @@ import { ProductService } from './../app/products/product.service';
 
 export const environment = {
   production: false,
-  baseUrl: 'https://product42.com',
-  endpoints: {
-    account: { path: 'auth/realms/basketmaster/account/?referrer=teams-frontend' },
+  auth: {
+    domain: process.env.NG_APP_AUTH_DOMAIN,
+    clientId: process.env.NG_APP_AUTH_CLIENT_ID,
+    redirectUrl: process.env.NG_APP_AUTH_REDIRECT_URL
   },
   providers: [
     { provide: ProductService, useClass: ProductMockService }

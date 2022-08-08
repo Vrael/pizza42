@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DirectiveModule } from './directives/directive.module';
 
 
 
@@ -10,11 +11,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   imports: [
     CommonModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    DirectiveModule
   ],
   exports: [
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    DirectiveModule
   ]
 })
 export class SharedModule { }

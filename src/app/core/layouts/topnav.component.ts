@@ -3,17 +3,22 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-topnav',
     template: `
-        <mat-toolbar>
-            <span>Product42</span>
+        <mat-toolbar color="primary">
+            <img src="assets/images/logo.png" class="logo" />
+            <span>Pizza42</span>
+            <span class="spacer"></span>
+            <app-auth-buttons></app-auth-buttons>
         </mat-toolbar>
-        <header id="topnav">
-        <!--
-            <app-topbar (menuCollapsed)="isMenuCollapsed = $event"></app-topbar>
-            <app-navbar [isMenuCollapsed]="isMenuCollapsed"></app-navbar>
-        -->    
-        </header>`,
+    `,
     styles: [`
-        :host { overflow: auto; }
+        .spacer {
+            flex: 1 1 auto;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 4px;
+        }
     `]
 })
 export class TopnavComponent {
