@@ -10,7 +10,8 @@ export const environment = {
   auth: {
     domain: process.env.NG_APP_AUTH_DOMAIN,
     clientId: process.env.NG_APP_AUTH_CLIENT_ID,
-    redirectUrl: process.env.NG_APP_AUTH_REDIRECT_URL
+    redirectUrl: process.env.NG_APP_AUTH_REDIRECT_URL,
+    audience: process.env.NG_APP_AUTH_AUDIENCE
   },
   providers: [
     { provide: ProductService, useClass: ProductMockService }

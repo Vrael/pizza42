@@ -1,38 +1,55 @@
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { AuthModule } from '@auth0/auth0-angular';
-import { LoginButtonComponent } from './login-button.component';
-import { LogoutButtonComponent } from './logout-button.component';
+import { AuthGuard, AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { UserProfileComponent } from './user-profile.component';
-import { AuthButtons } from './auth-buttons.component';
+import { AuthButtonsComponent } from './auth-buttons.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { environment } from '../../../environments/environment';
+import { UserMetadataComponent } from './user-metadata.component';
 
 @NgModule({
   declarations: [
-    LoginButtonComponent,
-    LogoutButtonComponent,
     UserProfileComponent,
-    AuthButtons
+    AuthButtonsComponent,
+    UserMetadataComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     SharedModule,
+    RouterModule,
+    HttpClientModule,
     AuthModule.forRoot({
       domain: environment.auth.domain,
       clientId: environment.auth.clientId,
       responseType: 'token id_token',
       redirectUri: environment.auth.redirectUrl,
-      scope: 'openid profile'
+      audience: environment.auth.audience,
+      scope: 'openid profile read:current_user update:current_user_metadata',
+      httpInterceptor: {
+        allowedList: [{
+            uri: `${environment.auth.audience}*`,
+            tokenOptions: {
+              audience: environment.auth.audience,
+              scope: 'read:current_user update:current_user_metadata'
+            }
+          }
+        ]
+      }
     }),
   ],
   exports: [
-    LoginButtonComponent,
-    LogoutButtonComponent,
     UserProfileComponent,
-    AuthButtons
-  ]
+    AuthButtonsComponent,
+    UserMetadataComponent,
+    AuthModule
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
+    AuthGuard,
+  ],
 })
 export class AuthenticationModule { }

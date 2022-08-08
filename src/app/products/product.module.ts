@@ -1,3 +1,5 @@
+import { OrdersHistoryPage } from './orders-history.page';
+import { OrdersHistoryComponent } from './orders-history.component';
 import { ProductRoutingModule } from './product-routering.module';
 import { ProductOrderingPage } from './product-ordering.page';
 import { ProductDetailComponent } from './product-detail.component';
@@ -12,6 +14,8 @@ import { CartModule } from './cart/cart.module';
     ProductListComponent,
     ProductDetailComponent,
     ProductOrderingPage,
+    OrdersHistoryComponent,
+    OrdersHistoryPage
   ],
   imports: [
     CommonModule,
