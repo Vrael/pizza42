@@ -23,6 +23,7 @@ import { Observable, of } from "rxjs";
                     </ng-template>
                 </button>
                 <mat-menu #menu="matMenu">
+                    <a mat-menu-item routerLink="/profile">Profile</a>
                     <a mat-menu-item routerLink="/orders">Orders</a>
                     <mat-divider></mat-divider>
                     <button mat-button (click)="logout()">Log out</button>
