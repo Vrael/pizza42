@@ -5,20 +5,21 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
   template: `
     <app-topnav></app-topnav>
 
-    <div class="wrapper">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <app-title></app-title>
-          </div>
-        </div>
-
+    <div class="content" fxLayout="row wrap">
+      <div fxFlex> 
+        <app-title></app-title>
         <router-outlet></router-outlet>
       </div>
     </div>
-
+    
     <app-footer></app-footer>
-  `
+  `,
+  styles: [`
+    .content {
+      padding: 20px;
+      background-color: #f4f4f4
+    }
+  `]
 })
 export class LayoutComponent implements OnInit, AfterViewInit {
 

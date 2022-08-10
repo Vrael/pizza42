@@ -5,8 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@auth0/auth0-angular';
 
 const routes: Routes = [
-    { path: '', component: ProductOrderingPage, data: { title: 'Order your product!' } },
-    { path: 'orders', component: OrdersHistoryPage, canActivate: [AuthGuard], data: { title: 'Orders!' } },
+    { path: '', component: ProductOrderingPage },
+    { path: 'orders', component: OrdersHistoryPage, canActivate: [AuthGuard] },
   ];
   
   @NgModule({

@@ -8,14 +8,8 @@ import { Injectable } from "@angular/core";
 })
 export class ProductMockService implements IProductService {
     
-    products: Product[] = [{
-        id: 1,
-        name: 'Cheese',
-        image: 'assets/images/pizzas/cheese.jpg',
-        base: Base.Regular,
-        size: Size.Large,
-        price: 18
-    },{
+    products: Product[] = [
+    {
         id: 2,
         name: 'Carbonara',
         image: 'assets/images/pizzas/carbonara.jpg',
@@ -38,19 +32,40 @@ export class ProductMockService implements IProductService {
         size: Size.Large,
         price: 16
     },{
+        id: 1,
+        name: 'Tennessee',
+        image: 'assets/images/pizzas/tennessee.jpg',
+        base: Base.Regular,
+        size: Size.Large,
+        price: 18
+    },{
         id: 5,
         name: 'Chicken',
         image: 'assets/images/pizzas/cajun.jpg',
         base: Base.Regular,
         size: Size.Large,
         price: 14
-    }, {
+    },{
         id: 6,
         name: 'Buffalo',
         image: 'assets/images/pizzas/buffalo.jpg',
         base: Base.Regular,
         size: Size.Large,
         price: 18
+    },{
+        id: 7,
+        name: 'Hiawatha',
+        image: 'assets/images/pizzas/hiawatha.jpg',
+        base: Base.Regular,
+        size: Size.Large,
+        price: 16
+    },{
+        id: 8,
+        name: 'Special',
+        image: 'assets/images/pizzas/special.jpg',
+        base: Base.Regular,
+        size: Size.Large,
+        price: 24
     }];
 
     list(): Observable<Product[]> {

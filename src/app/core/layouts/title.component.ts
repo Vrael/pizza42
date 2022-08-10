@@ -6,10 +6,8 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-title',
   template: `
-    <div class="page-title-box">
-      <h4 class="page-title">{{ title }}</h4>
-    </div>
-  `
+    <h1 class="page-title">{{ title }}</h1>
+  `,
 })
 export class TitleComponent implements OnInit, OnDestroy {
 
