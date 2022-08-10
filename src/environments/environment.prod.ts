@@ -1,3 +1,4 @@
+import { ProductMockService } from 'src/app/products/product-mock.service';
 import { ProductService } from './../app/products/product.service';
 
 export const environment = {
@@ -9,6 +10,7 @@ export const environment = {
     audience: process.env.NG_APP_AUTH_AUDIENCE
   },
   providers: [
-    { provide: ProductService, useClass: ProductService }
+    // { provide: ProductService, useClass: ProductService }
+    { provide: ProductService, useClass: ProductMockService } // TODO: Replace with the real when the API will be deployed.
   ]
 };
